@@ -7,7 +7,6 @@ import {
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { DEFAULT_LENGTH } from './constants';
-
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
