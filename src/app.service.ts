@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { randomBytes } from 'node:crypto';
 import { MAX_VALID_BYTE, S, S_LENGTH } from './constants';
-
 @Injectable()
 export class AppService {
   generateSecret(length = 22): string {
