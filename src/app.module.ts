@@ -10,6 +10,7 @@ import { LoggerService } from './logger/logger.service';
 import { LogController } from './log/log.controller';
 import { LogSchedulerService } from './log-scheduler/log-scheduler.service';
 import { ScheduleModule } from '@nestjs/schedule';
+import { LogCleanerService } from './log-cleaner/log-cleaner.service';
 
 @Module({
   imports: [
@@ -37,6 +38,11 @@ import { ScheduleModule } from '@nestjs/schedule';
     ScheduleModule.forRoot(),
   ],
   controllers: [AppController, LogController],
-  providers: [AppService, LoggerService, LogSchedulerService],
+  providers: [
+    AppService,
+    LoggerService,
+    LogSchedulerService,
+    LogCleanerService,
+  ],
 })
 export class AppModule {}
