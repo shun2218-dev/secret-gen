@@ -8,6 +8,8 @@ import { ThrottlerModule } from '@nestjs/throttler';
 // import { format, transports } from 'winston';
 import { LoggerService } from './logger/logger.service';
 import { LogController } from './log/log.controller';
+import { LogSchedulerService } from './log-scheduler/log-scheduler.service';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -32,21 +34,9 @@ import { LogController } from './log/log.controller';
         limit: 100,
       },
     ]),
-    // WinstonModule.forRoot({
-    //   transports: [
-    //     new transports.Console({
-    //       format: format.combine(
-    //         format.timestamp(),
-    //         format.printf(({ level, message, timestamp, context }) => {
-    //           // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-base-to-string
-    //           return `${timestamp} [${level}] ${context ? `[${context}] ` : ''}${message}`;
-    //         }),
-    //       ),
-    //     }),
-    //   ],
-    // }),
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController, LogController],
-  providers: [AppService, LoggerService],
+  providers: [AppService, LoggerService, LogSchedulerService],
 })
 export class AppModule {}
