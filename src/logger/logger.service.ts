@@ -33,8 +33,6 @@ export class LoggerService {
           level: 'info',
           silent: false,
         }),
-
-        new transports.File({ filename: 'debug.log', level: 'debug' }),
       ],
     });
   }
